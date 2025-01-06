@@ -15,13 +15,13 @@ $newPageIt = preg_replace("/\/fr\//", "/it/", $page);
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
             <li class="navbar-brand">
-                <a href="<?php echo $_SESSION['baseURL'] . "/asterix.php" ?>" style="color:white">Astérix</a>
+                <a href="<?php echo $_SESSION['baseURL'] . "/bdListe/asterix.php" ?>" style="color:white">Astérix</a>
             </li>
             <li class="navbar-brand">
-                <a href="<?php echo $_SESSION['baseURL'] . "/lucky_luke.php" ?>" style="color:white">Lucky Luke</a>
+                <a href="<?php echo $_SESSION['baseURL'] . "/bdListe/lucky_luke.php" ?>" style="color:white">Lucky Luke</a>
             </li>
             <li class="navbar-brand">
-                <a href="<?php echo $_SESSION['baseURL'] . "/tuniques_bleues.php" ?>" style="color:white">Les Tuniques Bleues</a>
+                <a href="<?php echo $_SESSION['baseURL'] . "/bdListe/tuniques_bleues.php" ?>" style="color:white">Les Tuniques Bleues</a>
             </li>
         </ul>
     </div>
