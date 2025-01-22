@@ -11,7 +11,7 @@ include "template/menu.php";
 
     // Open the file for reading
     if (($handle = fopen($csvFile, "r")) !== false) {
-        echo '<table class="table table-bordered table-striped">'; // Bootstrap table classes
+        echo '<table id="csvTable" class="table table-bordered table-striped">'; // Bootstrap table classes
 
         $isHeader = true; // Flag to check if it's the first row
         while (($data = fgetcsv($handle, 1000, ",")) !== false) {
@@ -37,6 +37,20 @@ include "template/menu.php";
 </div>
 <!-- Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // JavaScript for filtering table rows
+    document.getElementById('filter').addEventListener('keyup', function() {
+        const filterValue = this.value.toLowerCase();
+        const rows = document.querySelectorAll('#csvTable tr');
+
+        rows.forEach((row, index) => {
+            if (index === 0) return; // Skip the header row
+            const cells = row.querySelectorAll('td');
+            const rowText = Array.from(cells).map(cell => cell.textContent.toLowerCase()).join(' ');
+            row.style.display = rowText.includes(filterValue) ? '' : 'none';
+        });
+    });
+</script>
 
 <?php
 $dateMajFile = date("d/m/Y H:i.", filemtime(basename(__FILE__)));
